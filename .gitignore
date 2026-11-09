@@ -1,0 +1,11 @@
+﻿.env
+*.key
+*.pem
+config.toml
+**/txt/
+node_modules/
+__pycache__/
+.venv/
+local.settings.json
+*.bak*
+*bkp*

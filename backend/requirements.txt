@@ -1,0 +1,25 @@
+# Uncomment to enable Azure Monitor OpenTelemetry
+# Ref: aka.ms/functions-azure-monitor-python
+# azure-monitor-opentelemetry
+ 
+legacy-cgi
+azure-cosmos
+python-dotenv>=1.0.1
+openai
+azure-functions
+azure-storage-blob
+pypdf
+deep-translator
+uvicorn==0.25.0
+neo4j
+azure-search-documents
+toml
+googletrans
+azure-identity
+boto3
+azure-keyvault-secrets
+fonttools
+
+# Dossier Review upload text extraction (Sr 17 / Sr 97).
+# pypdf covers PDF; python-docx covers the .docx the design also accepts.
+python-docx

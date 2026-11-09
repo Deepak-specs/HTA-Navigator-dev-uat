@@ -1,0 +1,57 @@
+# What NOT to ship to nl-hta-navigator-dev-func.
+#
+# function_app.py is self-contained: it imports no sibling module and the only
+# file it opens at runtime is config.toml (see CONFIG_PATH, line 38). So the
+# deployment needs exactly four files -- function_app.py, config.toml,
+# host.json, requirements.txt -- and everything else here is local tooling.
+#
+# config.toml is deliberately NOT excluded. The function app has no NEO4J_* or
+# BEDROCK_* app settings in Azure; it reads all of them from this file. Exclude
+# it and every endpoint deploys cleanly and then fails at the Neo4j driver.
+
+# Version control. There is a 22 MB repo here; none of it belongs on the host.
+.git
+.gitignore
+
+# Virtualenvs and caches
+.venv
+__pycache__
+*.pyc
+
+# Oryx writes this on the server during a remote build. Shipping a local copy
+# can collide with what the build produces.
+.python_packages
+
+# Ingest toolchain and its ~1.7 GB mirrored PDF corpus. Excluding this is the
+# difference between a 200 KB upload and a failed multi-gigabyte one.
+Dev/
+
+# Node artifacts. This is a Python app; nothing here is used.
+node_modules
+package.json
+package-lock.json
+
+# Superseded copies of code and config. The config backups carry credentials
+# that have since been replaced -- there is no reason to put them on a server.
+*bkp*
+*bak*
+*-bk_*
+config_now.toml
+old_scripts-bkp_2209/
+working_backendcode_1108
+
+# Standalone ingest and discovery scripts, run by hand and never imported.
+run_pipeline.py
+run_diagnostics.py
+zin_*.py
+autoingestionfromzin-url/
+
+# Local-only settings and scratch data
+local.settings.json
+log.txt
+probe.txt
+neo4j_poc_diagnostics.json
+*.jsonl
+zin_data1/
+zin_data_old/
+zin_pdfs/

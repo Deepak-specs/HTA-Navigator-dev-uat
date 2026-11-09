@@ -1,0 +1,62 @@
+/* =========================================================
+   index.css — Sr 2
+   ---------------------------------------------------------
+   Tailwind entry point, and nothing else.
+
+   This file used to carry a second, competing design system:
+   --hta-navy / --hta-sky / --hta-orange tokens, Manrope and
+   Public Sans as the body and heading faces, a `body` rule
+   setting a #F8FAFC background, heading rules, and the
+   .badge-positive / .badge-negative / .badge-conditional
+   classes used by the old Tailwind pages.
+
+   App.css — the v2 design system — defines its own tokens,
+   Inter as the type family, and a #F6F5F9 background. Both
+   files were loaded, so the two fought over `body` and the
+   headings, and App.css won only because it happens to be
+   imported second. That is load order doing the work of a
+   decision.
+
+   Now that Dashboard, Search, Ruling Detail, Q&A and Insights
+   are all on the v2 design system, none of the above is
+   referenced by any live file, so it is gone. The shadcn/ui
+   HSL custom properties below stay: a handful of shadcn
+   primitives are still used elsewhere in the app (dialogs,
+   tooltips and friends) and read these variables.
+
+   App.css is the single source of visual truth.
+   ========================================================= */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 215 25% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 15%;
+    --primary: 209 66% 16%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 215 25% 15%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 199 89% 48%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 199 89% 48%;
+    --chart-1: 199 89% 48%;
+    --chart-2: 209 66% 16%;
+    --chart-3: 25 95% 53%;
+    --chart-4: 142 71% 45%;
+    --chart-5: 271 81% 56%;
+    --radius: 0.5rem;
+  }
+}

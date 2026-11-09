@@ -1,0 +1,52 @@
+# ── Secrets / local settings ──────────────────────────────────────────────────
+# config.toml holds Neo4j credentials, Azure Search keys, blob SAS URLs and
+# the AI gateway keys. It must never be committed; supply it at deploy time or
+# set the same keys as app settings (see _load_config in function_app.py).
+config.toml
+config*.toml
+local.settings.json
+.env
+.env.*
+!.env.example
+
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# ── Azure Functions ───────────────────────────────────────────────────────────
+bin/
+obj/
+.python_packages/
+.azurefunctions/
+
+# ── Logs / scratch ────────────────────────────────────────────────────────────
+*.log
+log.txt
+probe.txt
+neo4j_poc_diagnostics.json
+
+# ── Local ingestion artefacts ─────────────────────────────────────────────────
+zin_pdfs/
+zin_data1/
+zin_data_old/
+*.jsonl
+
+# ── Node (only present for local tooling) ─────────────────────────────────────
+node_modules/
+
+# ── Editor / OS ───────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# ── Backups ───────────────────────────────────────────────────────────────────
+*-bkp_*/
+*_bkp_*/
+*-bk_*/
+old_scripts-bkp_*/
+working_backendcode_*/
